@@ -151,22 +151,23 @@ def sub_to_segments(folder, out_folder):
                 )
 
 
-# parallel parameters
-folders = os.listdir(root)
-out_folders = []
-for folder in folders:
-    if folder in test_pats:
-        out_folder = os.path.join(out, "test")
-    elif folder in val_pats:
-        out_folder = os.path.join(out, "val")
-    else:
-        out_folder = os.path.join(out, "train")
+if __name__ == "__main__":
+    # parallel parameters
+    folders = os.listdir(root)
+    out_folders = []
+    for folder in folders:
+        if folder in test_pats:
+            out_folder = os.path.join(out, "test")
+        elif folder in val_pats:
+            out_folder = os.path.join(out, "val")
+        else:
+            out_folder = os.path.join(out, "train")
 
-    if not os.path.exists(out_folder):
-        os.makedirs(out_folder)
+        if not os.path.exists(out_folder):
+            os.makedirs(out_folder)
 
-    out_folders.append(out_folder)
+        out_folders.append(out_folder)
 
-# process in parallel
-with mp.Pool(mp.cpu_count()) as pool:
-    res = pool.starmap(sub_to_segments, zip(folders, out_folders))
+    # process in parallel
+    with mp.Pool(mp.cpu_count()) as pool:
+        res = pool.starmap(sub_to_segments, zip(folders, out_folders))
