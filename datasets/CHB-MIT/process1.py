@@ -231,11 +231,14 @@ def start_process(pacient, num, start, end, sum_ind):
 
 
 # PARAMETERS
-signals_path = "/srv/local/data/physionet.org/files/chbmit/1.0.0"  # Path to the data main directory
-clean_path = "/srv/local/data/physionet.org/files/chbmit/1.0.0/clean_signals"  # Path where to store clean data
+#signals_path = "/srv/local/data/physionet.org/files/chbmit/1.0.0"  # Path to the data main directory
+#clean_path = "/srv/local/data/physionet.org/files/chbmit/1.0.0/clean_signals"  # Path where to store clean data
 
 if not os.path.exists(clean_path):
     os.makedirs(clean_path)
+signals_path = "C:/Users/hartung/Documents/CHB-MIT/physionet.org/files/chbmit/1.0.0"
+clean_path = "C:/Users/hartung/Documents/CHB-MIT/physionet.org/files/chbmit/1.0.0/clean_signals"
+
 
 # Clean pacients one by one manually with these parameters
 pacient = "04"
