@@ -113,7 +113,7 @@ def process_files(pacient, valid_channels, channels, start, end):
         # Check with (cleaned) reference file  if we have to remove more channels
         try:
             signals, signal_headers, header = hl.read_edf(filename, digital=False)
-            n = 0
+            n = 0  # channel index
             for h in signal_headers:
                 if h.get("label") in valid_channels:
                     if n not in to_keep:
